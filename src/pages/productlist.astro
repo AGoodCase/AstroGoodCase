@@ -1,0 +1,29 @@
+---
+//@ts-nocheck
+import Layout from "../layouts/Layout.astro";
+import Pcard from "../components/Pcard.astro";
+const endpoint = "https://tugawxiltrjylrrkyipn.supabase.co/rest/v1/products";
+const options = {
+  headers: {
+    apikey: "sb_publishable__6zAgnY-J0PumwueqpD5qA_eF8nRnHo",
+  },
+};
+const data = await fetch(endpoint, options).then((response) => response.json());
+
+// console.log(data);
+---
+
+<Layout>
+  <h2>Products</h2>
+  <section>
+    {data.map((product) => <Pcard {product} />)}
+  </section>
+</Layout>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+</style>

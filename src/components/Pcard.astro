@@ -1,0 +1,28 @@
+---
+const { product } = Astro.props;
+---
+
+<article>
+  <img src={product.img} alt="productimage" />
+  <h3>{product.name}</h3>
+  <h4>{product.percent}%</h4>
+  <p class="price">kr. {product.price},-</p>
+  <p class="market_price">kr. {product.market_price},-</p>
+</article>
+
+<style>
+  article {
+    padding: 1rem;
+  }
+  img {
+    max-width: 100%;
+  }
+
+  .price {
+    color: darkgreen;
+  }
+  .market_price {
+    color: grey;
+    text-decoration: line-through;
+  }
+</style>
