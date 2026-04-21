@@ -3,18 +3,41 @@ import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import Sale from "../components/Sale.astro";
 import Hero from "../components/Hero.astro";
+import Nyheder from "../components/Nyheder.astro";
+
+const endpoint = "https://tugawxiltrjylrrkyipn.supabase.co/rest/v1/products";
+const options = {
+  headers: {
+    apikey: "sb_publishable__6zAgnY-J0PumwueqpD5qA_eF8nRnHo",
+  },
+};
+
+const data = await fetch(endpoint, options).then((res) => res.json());
 ---
 
 <Layout heroOverlay={true}>
   <Hero />
-
-  <Button text="FIND DIN ØL HER" variant="findoel" />
-  <Button text="LAV DIN EGEN KASSE HER" variant="findoel-green" />
-  <Button text="SE ALLE NYHEDER" variant="primaery-btn" />
-  <Button text="LÆS MERE HER" variant="primaery-btn" />
-  <Button text="SE DEM HER" variant="primaery-btn-green" />
-  <Button text="VÆLG ANTAL" variant="vaelg-antal" />
-  <Button text="LÆG I KURV" variant="laeg-i-kurv" />
+  <h3>Nyheder</h3>
+  <section class="nyheder-row">
+    {data.map((product) => <Nyheder product={product} />)}
+  </section>
 
   <Sale />
 </Layout>
+
+<Button text="FIND DIN ØL HER" variant="findoel" />
+<Button text="LAV DIN EGEN KASSE HER" variant="findoel-green" />
+<Button text="SE ALLE NYHEDER" variant="primaery-btn" />
+<Button text="LÆS MERE HER" variant="primaery-btn" />
+<Button text="SE DEM HER" variant="primaery-btn-green" />
+<Button text="VÆLG ANTAL" variant="vaelg-antal" />
+<Button text="LÆG I KURV" variant="laeg-i-kurv" />
+
+<style>
+  .nyheder-row {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+  }
+</style>
