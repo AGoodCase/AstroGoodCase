@@ -9,7 +9,7 @@
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  color: #16332d;
+  background-color: #f9f9f6;
 }
 
 /*  STORE TITLER (hero) */
@@ -41,6 +41,7 @@ h3 {
   margin: 0 0 0.5rem 0;
   text-transform: uppercase;
 }
+
 a {
   color: #16332d;
   text-decoration: none;
