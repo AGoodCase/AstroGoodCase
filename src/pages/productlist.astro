@@ -18,20 +18,20 @@ const data = await fetch(endpoint, options).then((response) => response.json());
 
   <section id="buttons">
     <button data-type="Alle">Alle</button>
-    <button data-type="ALE">Alle</button>
-    <button data-type="STOUT">Alle</button>
-    <button data-type="IPA">Alle</button>
+    <button data-type="Weissbier">Weissbier</button>
+    <button data-type="Stout">Stout</button>
+    <button data-type="IPA">IPA</button>
   </section>
 
-  <section>
-    {data.map((product) => product.type == "ALE" && <Pcard {product} />)}
+  <section class="Plist">
+    {data.map((product) => <Pcard {product} />)}
   </section>
-  <section>
-    {data.map((product) => product.type == "ALE" && <Pcard {product} />)}
+  <!-- <section class="Plist">
+    {data.map((product) => product.type == "Stout" && <Pcard {product} />)}
   </section>
-  <section>
-    {data.map((product) => product.type == "ALE" && <Pcard {product} />)}
-  </section>
+  <section class="Plist">
+    {data.map((product) => product.type == "IPA" && <Pcard {product} />)}
+  </section> -->
 </Layout>
 
 <style>
@@ -41,3 +41,22 @@ const data = await fetch(endpoint, options).then((response) => response.json());
     gap: 1rem;
   }
 </style>
+
+<script>
+  //@ts-nocheck
+  document
+    .querySelectorAll("button")
+    .forEach((button) => button.addEventListener("click", filtrer));
+
+  function filtrer(e) {
+    const cards = document.querySelectorAll(".Pcard");
+    const valgttype = e.target.dataset.type;
+    cards.forEach((card) => {
+      if (card.dataset.type == valgttype || valgttype == "Alle") {
+        card.classList.remove("hide");
+      } else {
+        card.classList.add("hide");
+      }
+    });
+  }
+</script>
