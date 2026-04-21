@@ -1,0 +1,120 @@
+---
+const {
+  text = "Klik her",
+  href = "#",
+  variant = "nyheder",
+} = Astro.props;
+---
+
+<a href={href} class={`btn ${variant}`}>
+  <span>{text}</span>
+</a>
+
+<style>
+.findoel {
+  width: 421px;
+  height: 50px;
+  border: 1.5px solid #f5f5f5;
+  background: transparent;
+
+  color: #f5f5f5;
+  font-size: 20px;
+  font-family: "Zalando Sans SemiExpanded";
+  font-weight: 400;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+   text-decoration: none;
+}
+.findoel-green {
+  width: 421px;
+  height: 50px;
+  border: 1.5px solid  #16332d;
+  background:  #16332d;
+
+  color: #f5f5f5;
+  font-size: 20px;
+  font-family: "Zalando Sans SemiExpanded";
+  font-weight: 400;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+   text-decoration: none;
+}
+
+.primaery-btn {
+  width: 239px;
+  height: 55px;
+
+  border: 1.5px solid #16332d;
+  background: transparent;
+
+  color: #16332d;
+  font-size: 20px;
+  font-family: "Zalando Sans SemiExpanded";
+  font-weight: 400;
+
+  display: inline-flex;
+ align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+}
+.primaery-btn-green {
+  width: 239px;
+  height: 55px;
+
+  border: 1.5px solid #16332d;
+  background: #16332d;
+
+  color: #f5f5f5;
+  font-size: 20px;
+  font-family: "Zalando Sans SemiExpanded";
+  font-weight: 400;
+
+  display: inline-flex;
+ align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+}
+.vaelg-antal {
+  width: 170px;
+  height: 40px;
+  background: #16332d;
+  border: 1px solid #16332d;
+
+  color: #f5f5f5;
+  font-size: 14px;
+  font-family:  "Zalando Sans SemiExpanded";
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  
+}
+.laeg-i-kurv {
+  width: 405px;
+  height: 59px;
+  background: #f9f9f6;
+  border: 1px solid #f9f9f6;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  color: #16332d;
+  font-size: 22px;
+  font-family: "Zalando Sans SemiExpanded", sans-serif;
+  font-style: normal;
+  font-weight:400;
+  line-height: normal;
+  text-decoration: none;
+  text-align: center;
+
+}
+</style>
