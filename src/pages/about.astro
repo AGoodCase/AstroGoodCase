@@ -6,12 +6,20 @@ import Layout from "../layouts/Layout.astro";
   <h2>A GOOD CASE</h2>
   <h1>GET TO KNOW US</h1>
 
+    <section class="grid_layout_about">
      <h2>FREMTIDEN ER GYLDEN</h2>
-  <p>Gylden som øl. Hvis vi står sammen på tværs af brancher og tager mere klimavenlige valg. Store som små. Den grønne omstilling og arbejdet med ESG udfordrer os alle, men vi rykker os kun, hvis vi handler.  I A Good Case er vi specialiseret i at redde specialøl. Vi er bryggeriernes sikkerhedsnet og det naturlige bindeled mellem bryggerierne og dig, der sætter pris på kvalitetsøl til en konkurrencedygtig pris. Når du handler online hos A Good Case er du med til at støtte den bæredygtige tankegang, der er hele grundlaget i vores forretning: At redde øllet, inden best before-datoen.</p>
-  
-    <h2>TIL GAVN FOR KLIMAET</h2>
-  <p>For faktum er, at bryggerierne fra tid til anden ender med partier af øl, de ikke kan sælge. Måske er der et restparti tilbage af en sæsonøl, måske er et parti øl tæt på udløbsdatoen, der er kommet en fejl på etikken eller en bule, eller en køber er sprunget fra. Fælles for de nævnte scenarier er, at øllet naturligvis ikke fejler noget.   På den måde undgår bryggerierne at hælde øllet ud, når det rammer best before-datoen – derved undgås unødigt spild af vand og CO2, der er brugt i produktionen. </p>
-  
+     <p>Gylden som øl. Hvis vi står sammen på tværs af brancher og tager mere klimavenlige valg. Store som små. Den grønne omstilling og arbejdet med ESG udfordrer os alle, men vi rykker os kun, hvis vi handler.  I A Good Case er vi specialiseret i at redde specialøl. Vi er bryggeriernes sikkerhedsnet og det naturlige bindeled mellem bryggerierne og dig, der sætter pris på kvalitetsøl til en konkurrencedygtig pris. Når du handler online hos A Good Case er du med til at støtte den bæredygtige tankegang, der er hele grundlaget i vores forretning: At redde øllet, inden best before-datoen.</p>
+      <img src="/src/assets/mand-med-øl.jpg" alt="Billede af mand med forskellige øl i hånden" />
+    </section>
+    <section class="grid_layout_about">
+      <img src="/src/assets/billede-af-ølsortiment.jpg" alt="Billede af et øl sortiment">
+     <h2>TIL GAVN FOR KLIMAET</h2>
+     <p>For faktum er, at bryggerierne fra tid til anden ender med partier af øl, de ikke kan sælge. Måske er der et restparti tilbage af en sæsonøl, måske er et parti øl tæt på udløbsdatoen, der er kommet en fejl på etikken eller en bule, eller en køber er sprunget fra. Fælles for de nævnte scenarier er, at øllet naturligvis ikke fejler noget.   På den måde undgår bryggerierne at hælde øllet ud, når det rammer best before-datoen – derved undgås unødigt spild af vand og CO2, der er brugt i produktionen. </p>
+
+    </section>
+
+
+
     <h2>SKIFTENDE SORTIMENT - SAMME KVALITET</h2>
   <p>I A Good Case har vi et alsidigt sortiment af lækre specialøl fra ind- og udland, som alle har det til fælles, at de venter på at blive reddet inden best before-datoen. Vores mission er derfor: LESS WASTE - GREAT TASTE.  I vores udvalg har vi altid fokus på den høje kvalitet, som mikrobryggerierne kan levere. Vi bestræber os på at indkøbe øl til enhver smag, pengepung og med forskellige alkoholprocenter. Vi indkøber kun øl, der skal reddes. Derfor er vores sortiment ikke fast, og du kan altid opleve nye, spændende øl, når du handler hos os. Siden starten har vi reddet mere end 1 mio. øl fra at gå til spilde.</p>
   
@@ -20,3 +28,10 @@ import Layout from "../layouts/Layout.astro";
   
 </Layout>
 
+<style>
+.grid_layout_about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+</style>
