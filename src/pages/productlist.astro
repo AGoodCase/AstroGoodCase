@@ -23,6 +23,11 @@ const data = await fetch(endpoint, options).then((response) => response.json());
     <button data-type="IPA">IPA</button>
   </section>
 
+  <section id="sort_buttons">
+    <button data-sort="acc">Lav til høj pris</button>
+    <button data-sort="dec">Høj til lav pris</button>
+  </section>
+
   <section class="Plist">
     {data.map((product) => <Pcard {product} />)}
   </section>
@@ -44,8 +49,10 @@ const data = await fetch(endpoint, options).then((response) => response.json());
 
 <script>
   //@ts-nocheck
+
+  // FILTRER
   document
-    .querySelectorAll("button")
+    .querySelectorAll("#buttons button")
     .forEach((button) => button.addEventListener("click", filtrer));
 
   function filtrer(e) {
@@ -58,5 +65,30 @@ const data = await fetch(endpoint, options).then((response) => response.json());
         card.classList.add("hide");
       }
     });
+  }
+
+  // SORTER
+  document
+    .querySelectorAll("#sort_buttons button")
+    .forEach((button) => button.addEventListener("click", sorter));
+
+  function sorter(e) {
+    const valgtdir = e.target.dataset.sort;
+    const container = document.querySelector(".Plist");
+    const cards = document.querySelectorAll(".Pcard");
+    container.textContent = "";
+    let newList;
+    if (valgtdir == "acc") {
+      newList = [...cards].sort(
+        (firstItem, secondItem) =>
+          firstItem.dataset.price - secondItem.dataset.price,
+      );
+    } else {
+      newList = [...cards].sort(
+        (firstItem, secondItem) =>
+          secondItem.dataset.price - firstItem.dataset.price,
+      );
+    }
+    newList.forEach((card) => container.append(card));
   }
 </script>

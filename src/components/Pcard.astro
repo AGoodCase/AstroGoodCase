@@ -2,7 +2,12 @@
 const { product } = Astro.props;
 ---
 
-<a href=`details/${product.handle}` class="Pcard" data-type={product.type}>
+<a
+  href=`details/${product.handle}`
+  class="Pcard"
+  data-type={product.type}
+  data-price={product.price}
+>
   <article>
     <img src={product.img} alt="productimage" />
     <h3>{product.name}</h3>
