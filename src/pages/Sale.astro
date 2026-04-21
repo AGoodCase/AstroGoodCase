@@ -1,0 +1,92 @@
+---
+
+---
+<section class="hero-section">
+ 
+  <div class="marquee">
+    <div class="marquee-content">
+      <span>BIG SALE! BIG SALE! BIG SALE! BIG SALE! BIG SALE! BIG SALE!</span>
+      <span>BIG SALE! BIG SALE! BIG SALE! BIG SALE! BIG SALE! BIG SALE!</span>
+    </div>
+  </div>
+
+ 
+  <div class="content">
+    <h2>SPAR OP TIL 60%</h2>
+    <p class="subtitle">SPECIAL ØL<br>TIL MARKEDETS BEDSTE PRISER</p>
+    <a href="/shop" class="btn">SE DEM HER</a>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    background-color: #FFD4F0; 
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    font-family: Zalando Sans, sans-serif; 
+  }
+
+  .marquee {
+    background-color: #16332D; 
+    padding: 15px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+  }
+
+  .marquee-content {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+  }
+
+  .marquee span {
+    color: #fcc9e1;
+    font-size: 60px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-right: 0px;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+
+  .content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2 {
+    color: #16332D;
+    font-size: 36px;
+    margin : 0; 
+  }
+
+  .subtitle {
+    color: #16332D;
+    font-size: 18px;
+    margin: 20px 0;
+    line-height: 1.2;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: #16332D;
+    color: white;
+    text-decoration: none;
+    padding: 15px 40px;
+    width: fit-content;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+  }
+
+  .btn:hover {
+    opacity: 0.9;
+  }
+</style>

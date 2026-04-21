@@ -1,0 +1,194 @@
+---
+
+---
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+
+<header>
+<nav>
+    <a id="logo" href="/">
+   <?xml version="1.0" encoding="UTF-8"?>
+<svg id="logo" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 82.7 74">
+  <!-- Generator: Adobe Illustrator 30.0.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 123)  -->
+  <defs>
+    <style>
+      .st0 {
+        stroke-width: 7.7px;
+      }
+
+      .st0, .st1 {
+        fill: none;
+        stroke: #1d322d;
+        stroke-miterlimit: 10;
+      }
+
+      .st1 {
+        stroke-width: 7px;
+      }
+
+      .st2 {
+        font-size: 13px;
+        letter-spacing: 0em;
+      }
+
+      .st2, .st3, .st4 {
+        isolation: isolate;
+      }
+
+      .st2, .st4 {
+        fill: #1d322d;
+        font-family: Avenir-Heavy, Avenir;
+        font-weight: 800;
+      }
+
+      .st4 {
+        font-size: 12.6px;
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <g id="logo">
+    <line id="streg" class="st0" x1="78.7" y1="9.8" x2="4.9" y2="9.8"/>
+    <line id="sideStreg" class="st1" x1="8.4" y1="66.9" x2="8.4" y2="6"/>
+    <line id="sideStreg1" data-name="sideStreg" class="st1" x1="75.2" y1="66.9" x2="75.2" y2="6"/>
+    <line id="streg1" data-name="streg" class="st0" x1="78.6" y1="45.4" x2="4.9" y2="45.4"/>
+    <g id="good" class="st3">
+      <text/>
+      <text class="st4" transform="translate(19.9 31.7) scale(1 1)"><tspan x="0" y="0">GOOD</tspan></text>
+    </g>
+    <g id="case" class="st3">
+      <text/>
+      <text class="st2" transform="translate(23.3 65.9)"><tspan x="0" y="0">CASE</tspan></text>
+    </g>
+  </g>
+</svg>
+    </a>
+
+    <ul class="menu">
+      <li><a href="/">NYHEDER</a></li>
+      <li><a href="/">SHOP</a></li>
+      <li><a href="/">ABONNEMENT</a></li>
+      <li><a href="/">ØL SMAGNING</a></li>
+      <li><a href="/">ERHVERV</a></li>
+      <li><a href="/forms">OM OS</a></li>
+
+    </ul>
+
+<div class="nav-actions">
+  <a href="/kurv" class="cart-icon">
+  <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+  </svg>
+</a>
+
+
+    <button class="burger">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>  
+    </button>
+</div>
+  </nav>
+
+</header>
+
+<style>
+
+#logo svg {
+  width: 70px;  
+  height: auto;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; 
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 3rem; 
+  margin: 0 auto;
+  padding: 0;
+  font-family: zalando sans, sans-serif;
+  
+}
+
+.menu a {
+  color: #16332D;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: zalando sans, sans-serif;
+}
+
+.burger {
+  display: none; 
+  flex-direction: column;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.burger .line {
+  width: 25px;
+  height: 3px;
+  background-color: #16332D;
+  display: block;
+}
+
+.cart-icon {
+  color: #16332D;
+  text-decoration: none;
+  width: 40px;
+height: auto;
+
+}
+
+@media screen and (max-width: 800px) {
+  .menu {
+    display: none;
+  }
+  .burger {
+    display: flex;
+    background-color: transparent;
+    border: 0;
+  }
+  .burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    transition: 0.2s linear;
+  }
+
+  .burger.active .line:nth-child(2) {
+    opacity: 0;
+    transition: 0.15s linear;
+  }
+
+  .burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    transition: 0.2s linear;
+  }
+}
+
+
+</style>
+
+<script>
+  const burger = document.getElementById('burger-menu');
+  burger?.addEventListener('click', () => {
+    burger.classList.toggle('active');
+  });
+</script>
