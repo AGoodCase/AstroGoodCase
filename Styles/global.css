@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 /* Typography */
 body {
   margin: 0;
@@ -39,6 +40,10 @@ h3 {
   line-height: 1.1;
   margin: 0 0 0.5rem 0;
   text-transform: uppercase;
+}
+a {
+  color: #16332d;
+  text-decoration: none;
 }
 h4 {
   font-family: "Zalando Sans Expanded", sans-serif;
