@@ -2,7 +2,7 @@
 const { product } = Astro.props;
 ---
 
-<a href=`details/${product.handle}`>
+<a href=`details/${product.handle}` class="Pcard" data-type={product.type}>
   <article>
     <img src={product.img} alt="productimage" />
     <h3>{product.name}</h3>
@@ -32,5 +32,9 @@ const { product } = Astro.props;
 
   a {
     text-decoration: none;
+  }
+
+  .hide {
+    display: none;
   }
 </style>

@@ -15,8 +15,22 @@ const data = await fetch(endpoint, options).then((response) => response.json());
 
 <Layout>
   <h2>Products</h2>
+
+  <section id="buttons">
+    <button data-type="Alle">Alle</button>
+    <button data-type="ALE">Alle</button>
+    <button data-type="STOUT">Alle</button>
+    <button data-type="IPA">Alle</button>
+  </section>
+
   <section>
-    {data.map((product) => <Pcard {product} />)}
+    {data.map((product) => product.type == "ALE" && <Pcard {product} />)}
+  </section>
+  <section>
+    {data.map((product) => product.type == "ALE" && <Pcard {product} />)}
+  </section>
+  <section>
+    {data.map((product) => product.type == "ALE" && <Pcard {product} />)}
   </section>
 </Layout>
 
