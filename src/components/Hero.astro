@@ -1,0 +1,92 @@
+---
+import Button from "../components/Button.astro";
+---
+
+<section class="hero">
+  <img src="/src/assets/herobillede.jpeg" alt="Billede af 2 der skåler" />
+
+  <div class="overlay"></div>
+
+  <div class="hero_text">
+    <h2>A GOOD CASE</h2>
+    <h1>EVEN BETTER TASTE</h1>
+    <Button text="FIND DIN ØL HER" variant="findoel" />
+    <p>Vælg ud fra smag og behag & hvilke øl du ønsker at nyde!</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+    z-index: 1;
+  }
+
+  .hero_text {
+    position: absolute;
+    left: 2rem;
+    top: 25%;
+    z-index: 2;
+    color: white;
+  }
+
+  .hero_text h2 {
+    margin: 0 0 1rem 0;
+    font-size: 5rem;
+    font-weight: 700;
+  }
+
+  .hero_text h1 {
+    margin: 0 0 2rem 0;
+    font-size: 7rem;
+    line-height: 0.95;
+    font-weight: 800;
+    max-width: 17ch;
+    margin-bottom: 60px;
+  }
+
+  .hero_text p {
+    font-family: "Zalando Sans Expanded", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 200;
+    margin-top: 15px;
+  }
+
+  :global(body.hero-overlay header .menu a) {
+  color: #f9f9f6 !important;
+}
+
+:global(body.hero-overlay header .cart-icon) {
+  color: #f9f9f6 !important;
+}
+
+:global(body.hero-overlay header .burger .line) {
+  background-color: #f9f9f6 !important;
+}
+
+:global(body.hero-overlay header #logo svg .st0),
+:global(body.hero-overlay header #logo svg .st1) {
+  stroke: #f9f9f6 !important;
+}
+
+:global(body.hero-overlay header #logo svg .st2),
+:global(body.hero-overlay header #logo svg .st4) {
+  fill: #f9f9f6 !important;
+}
+</style>
