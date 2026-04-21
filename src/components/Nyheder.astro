@@ -1,0 +1,74 @@
+---
+import Button from "./Button.astro";
+const { product } = Astro.props;
+
+const endpoint = "https://tugawxiltrjylrrkyipn.supabase.co/rest/v1/products";
+const options = {
+  headers: {
+    apikey: "sb_publishable__6zAgnY-J0PumwueqpD5qA_eF8nRnHo",
+  },
+};
+
+const data = await fetch(endpoint, options).then((res) => res.json());
+---
+
+<a
+  href=`details/${product.handle}`
+  class="Pcard"
+  data-type={product.type}
+  data-price={product.price}
+>
+  <article>
+    <img src={product.img} alt="productimage" />
+    <h3>{product.name}</h3>
+    <h4>{product.percent}%</h4>
+    <p class="price">kr. {product.price},-</p>
+    <p class="market_price">kr. {product.market_price},-</p>
+    <Button text="SE DEM HER" variant="primary-btn" />
+  </article>
+</a>
+
+<style>
+  article {
+    padding: 1rem;
+  }
+  img {
+    max-width: 100%;
+  }
+
+  .price {
+    color: darkgreen;
+  }
+
+  .market_price {
+    color: grey;
+    text-decoration: line-through;
+    font-family: "Zalando Sans Expanded", sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  /* forsøg på fix af cards */
+
+  a.Pcard {
+    flex: 0 0 220px; /* slightly smaller = more cards visible */
+  }
+
+  .Pcard img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain; /* keeps aspect ratio */
+  }
+
+  .Pcard article {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+</style>
