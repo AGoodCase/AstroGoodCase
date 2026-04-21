@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="goodcaselogo" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 82.7 74">
+  <!-- Generator: Adobe Illustrator 30.0.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 123)  -->
+  <defs>
+    <style>
+      .st0 {
+        stroke-width: 7.7px;
+      }
+
+      .st0, .st1 {
+        fill: none;
+        stroke: #1d322d;
+        stroke-miterlimit: 10;
+      }
+
+      .st1 {
+        stroke-width: 7px;
+      }
+
+      .st2 {
+        font-size: 13px;
+        letter-spacing: 0em;
+      }
+
+      .st2, .st3, .st4 {
+        isolation: isolate;
+      }
+
+      .st2, .st4 {
+        fill: #1d322d;
+        font-family: Avenir-Heavy, Avenir;
+        font-weight: 800;
+      }
+
+      .st4 {
+        font-size: 12.6px;
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <g id="logo">
+    <line id="streg" class="st0" x1="78.7" y1="9.8" x2="4.9" y2="9.8"/>
+    <line id="sideStreg" class="st1" x1="8.4" y1="66.9" x2="8.4" y2="6"/>
+    <line id="sideStreg1" data-name="sideStreg" class="st1" x1="75.2" y1="66.9" x2="75.2" y2="6"/>
+    <line id="streg1" data-name="streg" class="st0" x1="78.6" y1="45.4" x2="4.9" y2="45.4"/>
+    <g id="good" class="st3">
+      <text/>
+      <text class="st4" transform="translate(19.9 31.7) scale(1 1)"><tspan x="0" y="0">GOOD</tspan></text>
+    </g>
+    <g id="case" class="st3">
+      <text/>
+      <text class="st2" transform="translate(23.3 65.9)"><tspan x="0" y="0">CASE</tspan></text>
+    </g>
+  </g>
+</svg>
