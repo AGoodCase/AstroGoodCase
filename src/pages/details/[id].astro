@@ -1,5 +1,6 @@
 ---
 //@ts-nocheck
+import Button from "../../components/Button.astro";
 import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths() {
   const endpoint = "https://tugawxiltrjylrrkyipn.supabase.co/rest/v1/products";
@@ -46,7 +47,7 @@ const { product } = Astro.props;
             <p>-</p>
             <p>1</p>
             <p>+</p>
-            <button>blabla</button>
+            <Button text="LÆG I KURV" variant="laeg-i-kurv" />
           </div>
         </div>
         <div>
