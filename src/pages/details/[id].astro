@@ -1,0 +1,90 @@
+---
+//@ts-nocheck
+import Layout from "../../layouts/Layout.astro";
+export async function getStaticPaths() {
+  const endpoint = "https://tugawxiltrjylrrkyipn.supabase.co/rest/v1/products";
+  const options = {
+    headers: {
+      apikey: "sb_publishable__6zAgnY-J0PumwueqpD5qA_eF8nRnHo",
+    },
+  };
+  const response = await fetch(endpoint, options);
+  const data = await response.json();
+
+  return data.map((product) => {
+    return {
+      params: { id: product.handle },
+      props: { product },
+    };
+  });
+}
+
+const { product } = Astro.props;
+---
+
+<Layout>
+  <section class="details_grid">
+    <section class="details_grid_2fr">
+      <article>
+        <div>
+          <h1>{product.name}</h1>
+          <h2>{product.percent}% {product.type}</h2>
+          <p>{product.best_before}</p>
+        </div>
+        <div class="details_price_section">
+          <div>
+            <p class="details_stk">1 stk</p>
+            <p class="details_price">{product.price}/stk</p>
+            <p class="details_market_price">{product.market_price}</p>
+          </div>
+          <div>
+            <p class="details_stk">6 stk</p>
+            <p class="details_price">{product.price * 6}/stk</p>
+            <p class="details_market_price">{product.market_price * 6}</p>
+          </div>
+          <div>
+            <p>-</p>
+            <p>1</p>
+            <p>+</p>
+            <button>blabla</button>
+          </div>
+        </div>
+        <div>
+          <h3>Information:</h3>
+          <p>{product.description}</p>
+        </div>
+      </article>
+    </section>
+    <section class="details_grid_1fr">
+      <div>
+        <p class="drink_specs">Untappd rating: {product.rating}</p>
+        <p class="drink_specs">{product.type}</p>
+        <p class="drink_specs">{product.cl} cl</p>
+        <p class="drink_specs">{product.percent}</p>
+      </div>
+      <img src={product.img} alt="productimage" />
+    </section>
+  </section>
+
+  <!-- <article>
+    <img src={product.img} alt="productimage" />
+    <h4>{product.percent}%</h4>
+    <p class="price">kr. {product.price},-</p>
+    <p class="market_price">kr. {product.market_price},-</p>
+  </article> -->
+</Layout>
+
+<style>
+  .details_grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: #16332d;
+  }
+  .details_grid_2fr {
+    grid-column: 1/2;
+  }
+  .details_grid_1fr {
+    grid-column: 2/3;
+    background-color: #f9f9f6;
+  }
+</style>
