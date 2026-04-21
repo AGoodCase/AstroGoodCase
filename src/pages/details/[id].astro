@@ -38,13 +38,14 @@ const { product } = Astro.props;
   <div class="price_box price-option is-active">
     <p class="details_stk">1 stk</p>
     <p class="details_price">{product.price} DKK/stk</p>
-    <p class="details_market_price">{product.market_price} (vejl. markedspris)</p>
-  </div>
+<p class="details_market_price vejl">
+  <span class="strikethrough">{product.market_price}</span> (vejl. markedspris)
+</p>    </div>
 
   <div class="price_box2 price-option">
     <p class="details_stk">6 stk</p>
     <p class="details_price">{product.price * 6} DKK Total</p>
-    <p class="details_market_price">{(product.price * 0.8).toFixed(2)} DKK/stk</p>
+    <p class="details_market_price vejl">{(product.price * 0.8).toFixed(2)} DKK/stk</p>
   </div>
 </div>
 
@@ -68,7 +69,7 @@ const { product } = Astro.props;
             <Button text="LÆG I KURV" variant="laeg-i-kurv" />
           </div>
         </div>
-        <div>
+        <div class="info">
           <h3>Information:</h3>
           <p>{product.description}</p>
         </div>
@@ -96,10 +97,29 @@ const { product } = Astro.props;
 <style>
 /* FONTE */
 .details_stk{
-
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0 0 1rem 0;
 }
-
-
+.details_price{
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0 0 1rem 0;
+    }
+.strikethrough {
+  text-decoration: line-through;
+}
+.vejl {
+  font-size: 0.9rem;      
+  font-weight: 400; 
+  line-height: 20px;     
+}
+.info{
+    margin-top: 2rem;}
 
   .details_grid {
     display: grid;
@@ -121,9 +141,9 @@ const { product } = Astro.props;
 
   .bliblop {
     display: flex;
-    width: 172px;
+    width: 198px;
     height: 59px;
-    border: 3px solid #fff;
+    border: 2px solid #ccc; 
     align-items: center;
     justify-content: center;
     gap: 16px; /* space between -, 1, + */
@@ -132,23 +152,23 @@ const { product } = Astro.props;
 
   .container { 
   display: flex;
-  align-items: center; 
-  gap: 15px;    
+  gap: 15px;  
+ margin-top: 1rem;
         
 }
 .details_price_section{
-display:grid;
-grid-template-columns: 1fr 1fr;
-gap: 20px;
+display: flex;
+margin-top: 2rem;
 }
 .price-option {
-margin:0 2rem 3rem 0;
+    margin:0 18px 15px 0;
     cursor: pointer;
     padding: 10px;
     transition: all 0.2s ease;
     background-color: transparent;
     border: 2px solid #ccc; 
     color: inherit;
+    width: 300px;
   }
 
   
