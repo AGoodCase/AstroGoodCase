@@ -1,6 +1,8 @@
 ---
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
+
+const { heroOverlay = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,14 +22,9 @@ import Navigation from "../components/Navigation.astro";
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
 
-  <body>
-  <Navigation />
-  
-
-    <h2></h2>
-
+  <body class={heroOverlay ? "hero-overlay" : ""}>
+    <Navigation />
     <slot />
-
     <Footer />
   </body>
 </html>
@@ -38,5 +35,18 @@ import Navigation from "../components/Navigation.astro";
     margin: 0;
     width: 100%;
     min-height: 100%;
-  
+    padding: 0;
+  }
+
+  body {
+    position: relative;
+  }
+
+  :global(body.hero-overlay header) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
 </style>
