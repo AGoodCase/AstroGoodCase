@@ -21,6 +21,7 @@ export async function getStaticPaths() {
 }
 
 const { product } = Astro.props;
+
 ---
 
 <Layout>
@@ -32,7 +33,22 @@ const { product } = Astro.props;
           <h2>{product.percent}% {product.type}</h2>
           <p>{product.best_before}</p>
         </div>
-        <div class="details_price_section">
+<div class="details_price_section">
+  <!-- Vi tilføjer 'price-option' og en 'is-active' som standard på den første -->
+  <div class="price_box price-option is-active">
+    <p class="details_stk">1 stk</p>
+    <p class="details_price">{product.price} DKK/stk</p>
+    <p class="details_market_price">{product.market_price} (vejl. markedspris)</p>
+  </div>
+
+  <div class="price_box2 price-option">
+    <p class="details_stk">6 stk</p>
+    <p class="details_price">{product.price * 6} DKK Total</p>
+    <p class="details_market_price">{(product.price * 0.8).toFixed(2)} DKK/stk</p>
+  </div>
+</div>
+
+       <!--  <div class="details_price_section">
           <div class="price_box">
             <p class="details_stk">1 stk</p>
             <p class="details_price">{product.price}/stk</p>
@@ -42,8 +58,8 @@ const { product } = Astro.props;
             <p class="details_stk">6 stk</p>
             <p class="details_price">{product.price * 6}/stk</p>
             <p class="details_market_price">{product.market_price * 6}</p>
-          </div>
-          <div>
+          </div> -->
+          <div class="container">
             <div class="bliblop">
               <p>-</p>
               <p>1</p>
@@ -78,6 +94,13 @@ const { product } = Astro.props;
 </Layout>
 
 <style>
+/* FONTE */
+.details_stk{
+
+}
+
+
+
   .details_grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -106,4 +129,45 @@ const { product } = Astro.props;
     gap: 16px; /* space between -, 1, + */
     justify-content: space-around;
   }
+
+  .container { 
+  display: flex;
+  align-items: center; 
+  gap: 15px;    
+        
+}
+.details_price_section{
+display:grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;
+}
+.price-option {
+margin:0 2rem 3rem 0;
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border: 2px solid #ccc; 
+    color: inherit;
+  }
+
+  
+  .price-option.is-active {
+    background-color: #D4DFDF; 
+    border-color: #D4DFDF;
+    color: #16332D; }
+
 </style>
+<script>
+  const options = document.querySelectorAll('.price-option');
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      // Fjern 'is-active' fra alle kasser
+      options.forEach(opt => opt.classList.remove('is-active'));
+      
+      // Tilføj 'is-active' til den kasse der blev klikket på
+      option.classList.add('is-active');
+    });
+  });
+</script>
