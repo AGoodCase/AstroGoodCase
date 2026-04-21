@@ -1,0 +1,79 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Typography */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: #16332d;
+}
+
+/*  STORE TITLER (hero) */
+h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 0.95;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+/* SEKTIONER */
+h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+/* Mindre overskrifter */
+h3 {
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+}
+h4 {
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+}
+
+/* Brødtekst */
+p {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+}
+/* Produkt titel */
+.product-title {
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Pris */
+.price {
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Små tekster */
+.small-text {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
