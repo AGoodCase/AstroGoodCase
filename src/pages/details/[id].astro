@@ -33,20 +33,22 @@ const { product } = Astro.props;
           <p>{product.best_before}</p>
         </div>
         <div class="details_price_section">
-          <div>
+          <div class="price_box">
             <p class="details_stk">1 stk</p>
             <p class="details_price">{product.price}/stk</p>
             <p class="details_market_price">{product.market_price}</p>
           </div>
-          <div>
+          <div class="price_box2">
             <p class="details_stk">6 stk</p>
             <p class="details_price">{product.price * 6}/stk</p>
             <p class="details_market_price">{product.market_price * 6}</p>
           </div>
           <div>
-            <p>-</p>
-            <p>1</p>
-            <p>+</p>
+            <div class="bliblop">
+              <p>-</p>
+              <p>1</p>
+              <p>+</p>
+            </div>
             <Button text="LÆG I KURV" variant="laeg-i-kurv" />
           </div>
         </div>
@@ -87,5 +89,21 @@ const { product } = Astro.props;
   .details_grid_1fr {
     grid-column: 2/3;
     background-color: #f9f9f6;
+  }
+
+  .details_grid_2fr {
+    color: #f9f9f6;
+    padding: 31px;
+  }
+
+  .bliblop {
+    display: flex;
+    width: 172px;
+    height: 59px;
+    border: 3px solid #fff;
+    align-items: center;
+    justify-content: center;
+    gap: 16px; /* space between -, 1, + */
+    justify-content: space-around;
   }
 </style>
