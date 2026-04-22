@@ -1,31 +1,62 @@
 ---
+import Button from "../components/Button.astro";
 const { product } = Astro.props;
 ---
 
-<a
-  href={`details/${product.handle}`}
-  class="Pcard"
+<section
+  class="Pcard_wrap"
   data-type={product.type}
   data-brand={product.brand}
   data-box={product.box}
   data-price={product.price}
 >
-  <article>
-    <img src={product.img} alt="productimage" />
-    <h3>{product.name}</h3>
-    <h4>{product.percent}%</h4>
-    <p class="price">kr. {product.price},-</p>
-    <p class="market_price">kr. {product.market_price},-</p>
-  </article>
-</a>
+  <a
+    href={`details/${product.handle}`}
+    class="Pcard"
+  >
+    <article>
+      <img src={product.img} alt="productimage" />
+      <h3>{product.name}</h3>
+      <h4>{product.percent}%</h4>
+      <p class="price">kr. {product.price},-</p>
+      <p class="market_price">kr. {product.market_price},-</p>
+        <div class="card_btn">
+    <Button text="VÆLG ANTAL" variant="vaelg-antal" />
+  </div>
+    </article>
+ 
+
+  
+</section>
 
 <style>
+  .Pcard_wrap {
+    position: relative;
+  }
+
+  .Pcard {
+    display: block;
+    text-decoration: none;
+   
+  }
+
   article {
     padding: 1rem;
+    
   }
 
   img {
     max-width: 100%;
+    display: block;
+  }
+
+  .card_btn {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: -1.5rem;
+    z-index: 2;
+  
   }
 
   .price {
@@ -38,11 +69,8 @@ const { product } = Astro.props;
     font-family: "Zalando Sans Expanded", sans-serif;
   }
 
-  a {
-    text-decoration: none;
-  }
-
   .hide {
     display: none;
   }
+
 </style>
