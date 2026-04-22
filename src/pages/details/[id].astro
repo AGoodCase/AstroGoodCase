@@ -21,7 +21,6 @@ export async function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-
 ---
 
 <Layout>
@@ -33,23 +32,26 @@ const { product } = Astro.props;
           <h2>{product.percent}% {product.type}</h2>
           <p>{product.best_before}</p>
         </div>
-<div class="details_price_section">
-  <!-- Vi tilføjer 'price-option' og en 'is-active' som standard på den første -->
-  <div class="price_box price-option is-active">
-    <p class="details_stk">1 stk</p>
-    <p class="details_price">{product.price} DKK/stk</p>
-<p class="details_market_price vejl">
-  <span class="strikethrough">{product.market_price}</span> (vejl. markedspris)
-</p>    </div>
+        <div class="details_price_section">
+          <!-- Vi tilføjer 'price-option' og en 'is-active' som standard på den første -->
+          <div class="price_box price-option is-active">
+            <p class="details_stk">1 stk</p>
+            <p class="details_price">{product.price} DKK/stk</p>
+            <p class="details_market_price vejl">
+              <span class="strikethrough">{product.market_price}</span> (vejl. markedspris)
+            </p>
+          </div>
 
-  <div class="price_box2 price-option">
-    <p class="details_stk">6 stk</p>
-    <p class="details_price">{product.price * 6} DKK Total</p>
-    <p class="details_market_price vejl">{(product.price * 0.8).toFixed(2)} DKK/stk</p>
-  </div>
-</div>
+          <div class="price_box2 price-option">
+            <p class="details_stk">6 stk</p>
+            <p class="details_price">{product.price * 6} DKK Total</p>
+            <p class="details_market_price vejl">
+              {(product.price * 0.8).toFixed(2)} DKK/stk
+            </p>
+          </div>
+        </div>
 
-       <!--  <div class="details_price_section">
+        <!--  <div class="details_price_section">
           <div class="price_box">
             <p class="details_stk">1 stk</p>
             <p class="details_price">{product.price}/stk</p>
@@ -60,66 +62,66 @@ const { product } = Astro.props;
             <p class="details_price">{product.price * 6}/stk</p>
             <p class="details_market_price">{product.market_price * 6}</p>
           </div> -->
-          <div class="container">
-            <div class="bliblop">
-              <p>-</p>
-              <p>1</p>
-              <p>+</p>
-            </div>
-            <Button text="LÆG I KURV" variant="laeg-i-kurv" />
+        <div class="container">
+          <div class="bliblop">
+            <p>-</p>
+            <p>1</p>
+            <p>+</p>
           </div>
-        </div>
-        <div class="info">
-          <h3>Information:</h3>
-          <p>{product.description}</p>
+          <Button text="LÆG I KURV" variant="laeg-i-kurv" />
         </div>
       </article>
-    </section>
-    <section class="details_grid_1fr">
-      <div>
-        <p class="drink_specs">Untappd rating: {product.rating}</p>
-        <p class="drink_specs">{product.type}</p>
-        <p class="drink_specs">{product.cl} cl</p>
-        <p class="drink_specs">{product.percent}</p>
+      <div class="info">
+        <h3>Information:</h3>
+        <p>{product.description}</p>
       </div>
-      <img src={product.img} alt="productimage" />
     </section>
   </section>
+  <section class="details_grid_1fr">
+    <div class="drink_specs_div">
+      <p class="drink_specs">Untappd rating: {product.rating}</p>
+      <p class="drink_specs">{product.type}</p>
+      <p class="drink_specs">{product.cl} cl</p>
+      <p class="drink_specs">{product.percent}</p>
+    </div>
+    <img src={product.img} alt="productimage" />
+  </section>
+</Layout>
 
-  <!-- <article>
+<!-- <article>
     <img src={product.img} alt="productimage" />
     <h4>{product.percent}%</h4>
     <p class="price">kr. {product.price},-</p>
     <p class="market_price">kr. {product.market_price},-</p>
   </article> -->
-</Layout>
 
 <style>
-/* FONTE */
-.details_stk{
+  /* FONTE */
+  .details_stk {
     font-family: "Inter", sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 20px;
     margin: 0 0 1rem 0;
-}
-.details_price{
+  }
+  .details_price {
     font-family: "Inter", sans-serif;
     font-size: 24px;
     font-weight: 600;
     line-height: 20px;
     margin: 0 0 1rem 0;
-    }
-.strikethrough {
-  text-decoration: line-through;
-}
-.vejl {
-  font-size: 0.9rem;      
-  font-weight: 400; 
-  line-height: 20px;     
-}
-.info{
-    margin-top: 2rem;}
+  }
+  .strikethrough {
+    text-decoration: line-through;
+  }
+  .vejl {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  .info {
+    margin-top: 2rem;
+  }
 
   .details_grid {
     display: grid;
@@ -143,51 +145,49 @@ const { product } = Astro.props;
     display: flex;
     width: 198px;
     height: 59px;
-    border: 2px solid #ccc; 
+    border: 2px solid #ccc;
     align-items: center;
     justify-content: center;
     gap: 16px; /* space between -, 1, + */
     justify-content: space-around;
   }
 
-  .container { 
-  display: flex;
-  gap: 15px;  
- margin-top: 1rem;
-        
-}
-.details_price_section{
-display: flex;
-margin-top: 2rem;
-}
-.price-option {
-    margin:0 18px 15px 0;
+  .container {
+    display: flex;
+    gap: 15px;
+    margin-top: 1rem;
+  }
+  .details_price_section {
+    display: flex;
+    margin-top: 2rem;
+  }
+  .price-option {
+    margin: 0 18px 15px 0;
     cursor: pointer;
     padding: 10px;
     transition: all 0.2s ease;
     background-color: transparent;
-    border: 2px solid #ccc; 
+    border: 2px solid #ccc;
     color: inherit;
     width: 300px;
   }
 
-  
   .price-option.is-active {
-    background-color: #D4DFDF; 
-    border-color: #D4DFDF;
-    color: #16332D; }
-
+    background-color: #d4dfdf;
+    border-color: #d4dfdf;
+    color: #16332d;
+  }
 </style>
 <script>
-  const options = document.querySelectorAll('.price-option');
+  const options = document.querySelectorAll(".price-option");
 
-  options.forEach(option => {
-    option.addEventListener('click', () => {
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
       // Fjern 'is-active' fra alle kasser
-      options.forEach(opt => opt.classList.remove('is-active'));
-      
+      options.forEach((opt) => opt.classList.remove("is-active"));
+
       // Tilføj 'is-active' til den kasse der blev klikket på
-      option.classList.add('is-active');
+      option.classList.add("is-active");
     });
   });
 </script>
