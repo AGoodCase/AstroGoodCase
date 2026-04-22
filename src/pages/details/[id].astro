@@ -30,7 +30,7 @@ const { product } = Astro.props;
         <div>
           <h1>{product.name}</h1>
           <h2>{product.percent}% {product.type}</h2>
-          <p>{product.best_before}</p>
+          <p>Bedst før {product.best_before} ofte god efter</p>
         </div>
         <div class="details_price_section">
           <!-- Vi tilføjer 'price-option' og en 'is-active' som standard på den første -->
@@ -44,7 +44,9 @@ const { product } = Astro.props;
 
           <div class="price_box2 price-option">
             <p class="details_stk">6 stk</p>
-            <p class="details_price">{product.price * 6} DKK Total</p>
+            <p class="details_price">
+              {(product.price * 6).toFixed(2)} DKK Total
+            </p>
             <p class="details_market_price vejl">
               {(product.price * 0.8).toFixed(2)} DKK/stk
             </p>
@@ -75,16 +77,49 @@ const { product } = Astro.props;
         <h3>Information:</h3>
         <p>{product.description}</p>
       </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="600"
+        height="2"
+        viewBox="0 0 619 2"
+        fill="none"
+      >
+        <path
+          d="M1 1H617.516"
+          stroke="#F9F9F6"
+          stroke-width="2"
+          stroke-linecap="round"></path>
+      </svg>
+      <div class="colorfix">
+        <p>COLOR</p>
+        <svg
+          width="230"
+          height="30"
+          viewBox="0 0 230 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="117" cy="14.7871" r="11" fill="#C37233"></circle>
+          <circle cx="151" cy="14.7871" r="11" fill="#BE6B39"></circle>
+          <circle cx="185" cy="14.7871" r="11" fill="#B56236"></circle>
+          <circle cx="219" cy="14.7871" r="11" fill="#AA5A38"></circle>
+          <circle cx="15.0005" cy="14.7871" r="11" fill="#D9BA32"></circle>
+          <circle cx="49.0005" cy="14.7871" r="11" fill="#C79539"></circle>
+          <circle cx="83.0005" cy="14.7871" r="11" fill="#C7953A"></circle>
+          <circle cx="15" cy="15" r="13" stroke="#F9F9F6" stroke-width="4"
+          ></circle>
+        </svg>
+      </div>
     </section>
-  </section>
-  <section class="details_grid_1fr">
-    <div class="drink_specs_div">
-      <p class="drink_specs">Untappd rating: {product.rating}</p>
-      <p class="drink_specs">{product.type}</p>
-      <p class="drink_specs">{product.cl} cl</p>
-      <p class="drink_specs">{product.percent}</p>
-    </div>
-    <img src={product.img} alt="productimage" />
+    <section class="details_grid_1fr">
+      <div class="drink_specs_div">
+        <p class="drink_specs">UNTAPPD RATING: {product.rating}</p>
+        <p class="drink_specs">{product.type}</p>
+        <p class="drink_specs">{product.cl} cl</p>
+        <p class="drink_specs">{product.percent}%</p>
+      </div>
+      <img src={product.img} alt="productimage" />
+    </section>
   </section>
 </Layout>
 
@@ -123,10 +158,18 @@ const { product } = Astro.props;
     margin-top: 2rem;
   }
 
+  .colorfix {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+
   .details_grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     background-color: #16332d;
+    margin: 0 auto;
+    max-height: 110vh;
   }
   .details_grid_2fr {
     grid-column: 1/2;
@@ -139,17 +182,22 @@ const { product } = Astro.props;
   .details_grid_2fr {
     color: #f9f9f6;
     padding: 31px;
+    max-width: 900px;
+    margin: auto;
   }
 
   .bliblop {
-    display: flex;
+    display: inline-flex;
     width: 198px;
     height: 59px;
     border: 2px solid #ccc;
     align-items: center;
     justify-content: center;
-    gap: 16px; /* space between -, 1, + */
     justify-content: space-around;
+  }
+
+  .bliblop p {
+    margin: 0;
   }
 
   .container {
@@ -176,6 +224,22 @@ const { product } = Astro.props;
     background-color: #d4dfdf;
     border-color: #d4dfdf;
     color: #16332d;
+  }
+  .drink_specs_div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 40px;
+    margin-top: 40px;
+  }
+
+  .drink_specs {
+    border-radius: 7px;
+    background: #d4dfdf;
+    height: fit-content;
+    width: fit-content;
+    padding: 6px;
+    margin-bottom: 10px;
   }
 </style>
 <script>
