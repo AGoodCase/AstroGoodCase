@@ -1,4 +1,5 @@
 ---
+//@ts-nocheck
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import Sale from "../components/Sale.astro";
@@ -22,7 +23,28 @@ const data = await fetch(endpoint, options).then((res) => res.json());
     {data.map((product) => <Nyheder product={product} />)}
   </section>
 
-  <Sale />
+  <main>
+    <Sale />
+    <section class="grid_layout_about">
+      <div>
+        <h2>HVEM ER VI?</h2>
+        <p>
+          A Good Case blev grundlagt af vennerne Jesper, Mads og Mads tilbage i
+          2020, der i dag alle er partnere i virksomheden. I alt er vi fem
+          ansatte. Vi ansætter løbende praktikanter og samarbejder med Brøndby
+          Kommune omkring fleksjobbere, da vi gerne vil bidrage til, at alle får
+          en ny chance i arbejdslivet. Vi holder til i Brøndby, hvor vi har
+          tusindvis af øl på lager, vi står klar til at pakke og sende ud i hele
+          Danmark. Vi sælger et kurateret udvalg i vores fysiske lagersalg.
+        </p>
+        <Button text="LÆS MERE HER" variant="primaery-btn" href="/about" />
+      </div>
+      <img
+        src="/src/assets/agoodcaseteam.jpg"
+        alt="et billede af mændene bag a good case"
+      />
+    </section>
+  </main>
 </Layout>
 
 <Button text="FIND DIN ØL HER" variant="findoel" />
@@ -39,5 +61,22 @@ const data = await fetch(endpoint, options).then((res) => res.json());
     gap: 2rem;
     overflow-x: auto;
     padding: 1rem 0;
+  }
+
+  .grid_layout_about {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1280px;
+    margin: 4rem auto;
+  }
+  .grid_layout_about img {
+    width: 100%;
+    height: auto;
+  }
+
+  .grid_layout_about p {
+    line-height: 2;
+    margin-bottom: 4rem;
   }
 </style>
