@@ -3,9 +3,11 @@ const { product } = Astro.props;
 ---
 
 <a
-  href=`details/${product.handle}`
+  href={`details/${product.handle}`}
   class="Pcard"
   data-type={product.type}
+  data-brand={product.brand}
+  data-box={product.box}
   data-price={product.price}
 >
   <article>
@@ -21,6 +23,7 @@ const { product } = Astro.props;
   article {
     padding: 1rem;
   }
+
   img {
     max-width: 100%;
   }

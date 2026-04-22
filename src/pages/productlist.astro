@@ -9,6 +9,20 @@ const options = {
   },
 };
 const data = await fetch(endpoint, options).then((response) => response.json());
+const beerTypes = ["Alle", "IPA", "Stout", "Weissbier"];
+const brands = [
+  "Alle",
+  "ÅBEN",
+  "Dragonfly",
+  "Brew York",
+  "Stangen",
+  "Dry & Bitter",
+  "Fermenterarna",
+  "Estrella",
+  "Olympic",
+  "Reeper B."
+];
+const boxSizes = ["Alle", "6", "12", "24"];
 
 // console.log(data);
 ---
@@ -17,32 +31,75 @@ const data = await fetch(endpoint, options).then((response) => response.json());
   <h3>Products</h3>
 
  <section class="shop_layout">
-  <aside class="filters">
-    <button class="filter_btn" data-type="Alle">
+ <aside class="filters">
+  <div class="filter_group">
+    <button class="filter_btn accordion_btn" type="button">
       <span>ØL TYPER</span>
-      <span>⌄</span>
+      <span class="arrow">⌄</span>
     </button>
 
-    <button class="filter_btn" data-sort="acc">
+    <div class="filter_content">
+      {beerTypes.map((type) => (
+        <button class="sub_filter" type="button" data-filter="type" data-value={type}>
+          {type}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="filter_group">
+    <button class="filter_btn accordion_btn" type="button">
       <span>PRIS</span>
-      <span>⌄</span>
+      <span class="arrow">⌄</span>
     </button>
 
-    <button class="filter_btn">
+    <div class="filter_content">
+      <button class="sub_filter" type="button" data-sort="acc">Lav til høj pris</button>
+      <button class="sub_filter" type="button" data-sort="dec">Høj til lav pris</button>
+    </div>
+  </div>
+
+  <div class="filter_group">
+    <button class="filter_btn accordion_btn" type="button">
       <span>BRANDS</span>
-      <span>⌄</span>
+      <span class="arrow">⌄</span>
     </button>
 
-    <button class="filter_btn">
+    <div class="filter_content">
+      {brands.map((brand) => (
+        <button class="sub_filter" type="button" data-filter="brand" data-value={brand}>
+          {brand}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="filter_group">
+    <button class="filter_btn accordion_btn" type="button">
       <span>KASSER</span>
-      <span>⌄</span>
+      <span class="arrow">⌄</span>
     </button>
 
-    <button class="filter_btn">
+    <div class="filter_content">
+      {boxSizes.map((size) => (
+        <button class="sub_filter" type="button" data-filter="box" data-value={size}>
+          {size === "Alle" ? "Alle" : `${size} stk`}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="filter_group">
+    <button class="filter_btn accordion_btn" type="button">
       <span>ØL FARVE</span>
-      <span>⌄</span>
+      <span class="arrow">⌄</span>
     </button>
-  </aside>
+
+    <div class="filter_content">
+      <button class="sub_filter" type="button">Kommer snart</button>
+    </div>
+  </div>
+</aside>
 
   <section class="products">
     <section class="Plist">
@@ -77,6 +134,9 @@ const data = await fetch(endpoint, options).then((response) => response.json());
   width: 200px;
   justify-self: start;
 }
+.filter_group {
+  width: 100%;
+}
 
 .filter_btn {
   width: 100%;
@@ -95,10 +155,35 @@ const data = await fetch(endpoint, options).then((response) => response.json());
   text-align: left;
 }
 
-.filter_btn span:last-child {
-  font-size: 20px; /* mindre pil */
+.arrow {
+  font-size: 20px;
   display: flex;
-  align-items: center; 
+  align-items: center;
+}
+.filter_content {
+  display: none;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.8rem 0 0.4rem 0;
+}
+
+.filter_group.open .filter_content {
+  display: flex;
+}
+
+.sub_filter {
+  background: transparent;
+  border: none;
+  color: #16332d;
+  text-align: left;
+  font-family: "Zalando Sans SemiExpanded", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0.2rem 0;
+}
+
+.hide {
+  display: none;
 }
 
 .products {
@@ -111,22 +196,126 @@ const data = await fetch(endpoint, options).then((response) => response.json());
   grid-template-columns: repeat(4, minmax(220px, 1fr));
   gap: 2rem;
 }
-}
+
 </style>
 
 <script>
   //@ts-nocheck
 
-  // FILTRER
-  document
-    .querySelectorAll("#buttons button")
-    .forEach((button) => button.addEventListener("click", filtrer));
+  if (false) {
+    // FILTRER
+    document
+      .querySelectorAll("#buttons button")
+      .forEach((button) => button.addEventListener("click", filtrer));
 
-  function filtrer(e) {
+    function filtrer(e) {
+      const cards = document.querySelectorAll(".Pcard");
+      const valgttype = e.target.dataset.type;
+      cards.forEach((card) => {
+        if (card.dataset.type == valgttype || valgttype == "Alle") {
+          card.classList.remove("hide");
+        } else {
+          card.classList.add("hide");
+        }
+      });
+    }
+
+    // SORTER
+    document
+      .querySelectorAll("#sort_buttons button")
+      .forEach((button) => button.addEventListener("click", sorter));
+
+    function sorter(e) {
+      const valgtdir = e.target.dataset.sort;
+      const container = document.querySelector(".Plist");
+      const cards = document.querySelectorAll(".Pcard");
+      container.textContent = "";
+      let newList;
+      if (valgtdir == "acc") {
+        newList = [...cards].sort(
+          (firstItem, secondItem) =>
+            firstItem.dataset.price - secondItem.dataset.price,
+        );
+      } else {
+        newList = [...cards].sort(
+          (firstItem, secondItem) =>
+            secondItem.dataset.price - firstItem.dataset.price,
+        );
+      }
+      newList.forEach((card) => container.append(card));
+    }
+  }
+</script>
+
+<script>
+  //@ts-nocheck
+
+  const activeFilters = {
+    type: "Alle",
+    brand: "Alle",
+    box: "Alle",
+  };
+
+  document.querySelectorAll(".accordion_btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const group = button.parentElement;
+      group.classList.toggle("open");
+    });
+  });
+
+  function resetOtherFilters(currentFilter) {
+    if (currentFilter !== "type") activeFilters.type = "Alle";
+    if (currentFilter !== "brand") activeFilters.brand = "Alle";
+    if (currentFilter !== "box") activeFilters.box = "Alle";
+  }
+
+  document.querySelectorAll(".sub_filter[data-filter]").forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const filterName = e.currentTarget.dataset.filter;
+      const value = e.currentTarget.dataset.value;
+
+      resetOtherFilters(filterName);
+      activeFilters[filterName] = value;
+      applyFilters();
+    });
+  });
+
+  function normalizeBeerType(type) {
+    if (!type) return "";
+
+    const lower = type.toLowerCase();
+
+    if (lower.includes("ipa")) return "IPA";
+    if (lower.includes("stout")) return "Stout";
+    if (lower.includes("weiss") || lower.includes("hefe")) return "Weissbier";
+
+    return type;
+  }
+
+  function normalizeBrand(brand) {
+    if (!brand) return "";
+    return brand.trim().toUpperCase();
+  }
+
+  function applyFilters() {
     const cards = document.querySelectorAll(".Pcard");
-    const valgttype = e.target.dataset.type;
+
     cards.forEach((card) => {
-      if (card.dataset.type == valgttype || valgttype == "Alle") {
+      const cardType = normalizeBeerType(card.dataset.type);
+      const cardBrand = normalizeBrand(card.dataset.brand);
+      const cardBox = card.dataset.box;
+      const selectedBrand = normalizeBrand(activeFilters.brand);
+
+      const matchType =
+        activeFilters.type === "Alle" || cardType === activeFilters.type;
+
+      const matchBrand =
+        activeFilters.brand === "Alle" || cardBrand === selectedBrand;
+
+      const matchBox =
+        activeFilters.box === "Alle" || cardBox === activeFilters.box;
+
+      if (matchType && matchBrand && matchBox) {
         card.classList.remove("hide");
       } else {
         card.classList.add("hide");
@@ -134,28 +323,23 @@ const data = await fetch(endpoint, options).then((response) => response.json());
     });
   }
 
-  // SORTER
-  document
-    .querySelectorAll("#sort_buttons button")
-    .forEach((button) => button.addEventListener("click", sorter));
+  document.querySelectorAll(".sub_filter[data-sort]").forEach((button) => {
+    button.addEventListener("click", sorterNy);
+  });
 
-  function sorter(e) {
-    const valgtdir = e.target.dataset.sort;
+  function sorterNy(e) {
+    const valgtDir = e.currentTarget.dataset.sort;
     const container = document.querySelector(".Plist");
-    const cards = document.querySelectorAll(".Pcard");
-    container.textContent = "";
-    let newList;
-    if (valgtdir == "acc") {
-      newList = [...cards].sort(
-        (firstItem, secondItem) =>
-          firstItem.dataset.price - secondItem.dataset.price,
-      );
-    } else {
-      newList = [...cards].sort(
-        (firstItem, secondItem) =>
-          secondItem.dataset.price - firstItem.dataset.price,
-      );
-    }
-    newList.forEach((card) => container.append(card));
+    const cards = [...document.querySelectorAll(".Pcard")];
+
+    const sorted =
+      valgtDir === "acc"
+        ? cards.sort((a, b) => Number(a.dataset.price) - Number(b.dataset.price))
+        : cards.sort((a, b) => Number(b.dataset.price) - Number(a.dataset.price));
+
+    container.innerHTML = "";
+    sorted.forEach((card) => container.append(card));
+
+    applyFilters();
   }
 </script>
