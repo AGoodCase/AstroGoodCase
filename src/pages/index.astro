@@ -20,9 +20,15 @@ const data = await fetch(endpoint, options).then((res) => res.json());
 
 <Layout heroOverlay={true}>
   <Hero />
-  <h3>Nyheder</h3>
-  <section class="nyheder-row">
-    {data.map((product) => <Nyheder product={product} />)}
+
+  <section class="nyheder-section">
+    <h3 class="nyheder-title">Nyheder</h3>
+    <section class="nyheder-row">
+      {data.map((product) => <Nyheder product={product} />)}
+    </section>
+    <div class="allenyhederknap">
+    <Button text="SE ALLE NYHEDER" variant="primaery-btn" href="/productlist"/>
+    </div>
   </section>
 
   <main>
@@ -80,11 +86,39 @@ const data = await fetch(endpoint, options).then((res) => res.json());
 <Button text="LÆG I KURV" variant="laeg-i-kurv" />
 
 <style>
+  .nyheder-section {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .allenyhederknap{
+ text-align: center;
+ margin-bottom: 4rem;
+ margin-top: 2rem;
+  }
+
+  .nyheder-title {
+    text-align: center;
+    font-size: 34px;
+    margin: 2rem 0 1rem;
+    color: #16332d;
+    font-weight: 500;
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+  }
+
   .nyheder-row {
     display: flex;
     gap: 2rem;
     overflow-x: auto;
-    padding: 1rem 0;
+    padding: 1rem 0 2rem 3rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .nyheder-row::-webkit-scrollbar {
+    display: none;
   }
 
   .grid_layout_about {
@@ -94,6 +128,7 @@ const data = await fetch(endpoint, options).then((res) => res.json());
     max-width: 1280px;
     margin: 4rem auto;
   }
+
   .grid_layout_about img {
     width: 100%;
     height: auto;
@@ -102,5 +137,11 @@ const data = await fetch(endpoint, options).then((res) => res.json());
   .grid_layout_about p {
     line-height: 2;
     margin-bottom: 4rem;
+  }
+
+  @media (max-width: 900px) {
+    .grid_layout_about {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
