@@ -1,9 +1,5 @@
 ---
-const {
-  text = "Klik her",
-  href = "#",
-  variant = "nyheder",
-} = Astro.props;
+const { text = "Klik her", href = "#", variant = "nyheder" } = Astro.props;
 ---
 
 <a href={href} class={`btn ${variant}`}>
@@ -11,142 +7,160 @@ const {
 </a>
 
 <style>
-.findoel {
-  width: 421px;
-  height: 50px;
-  border: 1.5px solid #f5f5f5;
-  background: transparent;
+  .findoel {
+    width: 421px;
+    height: 50px;
+    border: 1.5px solid #f5f5f5;
+    background: transparent;
 
-  color: #f5f5f5;
-  font-size: 20px;
-  font-family: "Zalando Sans SemiExpanded";
-  font-weight: 400;
+    color: #f5f5f5;
+    font-size: 20px;
+    font-family: "Zalando Sans SemiExpanded";
+    font-weight: 400;
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-   text-decoration: none;
-}
-.findoel:hover {
-  border: 1.5px solid #16332d;
-  background: #16332d;
-  color: #f5f5f5;
-}
-.findoel-green {
-  width: 421px;
-  height: 50px;
-  border: 1.5px solid  #16332d;
-  background:  #16332d;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .findoel:hover {
+    border: 1.5px solid #16332d;
+    background: #16332d;
+    color: #f5f5f5;
+  }
+  .findoel-green {
+    width: 421px;
+    height: 50px;
+    border: 1.5px solid #16332d;
+    background: #16332d;
 
-  color: #f5f5f5;
-  font-size: 20px;
-  font-family: "Zalando Sans SemiExpanded";
-  font-weight: 400;
+    color: #f5f5f5;
+    font-size: 20px;
+    font-family: "Zalando Sans SemiExpanded";
+    font-weight: 400;
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-   text-decoration: none;
-}
-.findoel-green:hover {
-  background: transparent;
-  border: 1.5px solid #16332d;
-  color: #16332d;
-}
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .findoel-green:hover {
+    background: transparent;
+    border: 1.5px solid #16332d;
+    color: #16332d;
+  }
 
-.primaery-btn {
-  width: 239px;
-  height: 55px;
+  .primaery-btn {
+    width: 239px;
+    height: 55px;
 
-  border: 1.5px solid #16332d;
-  background: transparent;
+    border: 1.5px solid #16332d;
+    background: transparent;
 
-  color: #16332d;
-  font-size: 20px;
-  font-family: "Zalando Sans SemiExpanded";
-  font-weight: 400;
+    color: #16332d;
+    font-size: 20px;
+    font-family: "Zalando Sans SemiExpanded";
+    font-weight: 400;
 
-  display: inline-flex;
- align-items: center;
-  justify-content: center;
-  text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .primaery-btn:hover {
+    border: 1.5px solid #16332d;
+    background: #16332d;
+    color: #f5f5f5;
+  }
+  .primaery-btn-green {
+    width: 239px;
+    height: 55px;
 
-}
-.primaery-btn:hover {
-   border: 1.5px solid #16332d;
-  background: #16332d;
-  color: #f5f5f5;
-}
-.primaery-btn-green {
-  width: 239px;
-  height: 55px;
+    border: 1.5px solid #16332d;
+    background: #16332d;
 
-  border: 1.5px solid #16332d;
-  background: #16332d;
+    color: #f5f5f5;
+    font-size: 20px;
+    font-family: "Zalando Sans SemiExpanded";
+    font-weight: 400;
 
-  color: #f5f5f5;
-  font-size: 20px;
-  font-family: "Zalando Sans SemiExpanded";
-  font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
 
-  display: inline-flex;
- align-items: center;
-  justify-content: center;
-  text-decoration: none;
+  .primaery-btn-green:hover {
+    background: transparent;
+    border: 1.5px solid #16332d;
+    color: #16332d;
+  }
+  .vaelg-antal {
+    width: 170px;
+    height: 40px;
+    background: #16332d;
+    border: 1px solid #16332d;
 
-}
+    color: #f5f5f5;
+    font-size: 14px;
+    font-family: "Zalando Sans SemiExpanded";
 
-.primaery-btn-green:hover {
-   background: transparent;
-  border: 1.5px solid #16332d;
-  color: #16332d;
-}
-.vaelg-antal {
-  width: 170px;
-  height: 40px;
-  background: #16332d;
-  border: 1px solid #16332d;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .vaelg-antal:hover {
+    background: transparent;
+    border: 1.5px solid #16332d;
+    color: #16332d;
+  }
 
-  color: #f5f5f5;
-  font-size: 14px;
-  font-family:  "Zalando Sans SemiExpanded";
+  .laeg-i-kurv {
+    width: 405px;
+    height: 59px;
+    background: #f9f9f6;
+    border: 1px solid #f9f9f6;
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  
-}
-.vaelg-antal:hover {
-   background: transparent;
-  border: 1.5px solid #16332d;
-  color: #16332d;
-}
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 
-.laeg-i-kurv {
-  width: 405px;
-  height: 59px;
-  background: #f9f9f6;
-  border: 1px solid #f9f9f6;
+    color: #16332d;
+    font-size: 22px;
+    font-family: "Zalando Sans SemiExpanded", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    text-align: center;
+  }
+  .laeg-i-kurv:hover {
+    background: transparent;
+    border: 1.5px solid#f9f9f6;
+    color: #f9f9f6;
+  }
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+  .findoel_nyhedsbrev {
+    width: 436px;
+    height: 50px;
+    border: 1.5px solid #f9f9f6;
+    background: transparent;
 
-  color: #16332d;
-  font-size: 22px;
-  font-family: "Zalando Sans SemiExpanded", sans-serif;
-  font-style: normal;
-  font-weight:400;
-  line-height: normal;
-  text-decoration: none;
-  text-align: center;
+    color: #f9f9f6;
+    font-size: 20px;
+    font-family: "Zalando Sans SemiExpanded";
+    font-weight: 400;
 
-}
-.laeg-i-kurv:hover {
-   background: transparent;
-  border: 1.5px solid#f9f9f6;
-  color: #f9f9f6;;
-}
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .findoel_nyhedsbrev:hover {
+    border: 1.5px solid #16332d;
+    background: #ffd4f0;
+    color: #f9f9f6;
+  }
 </style>

@@ -5,6 +5,8 @@ import Button from "../components/Button.astro";
 import Sale from "../components/Sale.astro";
 import Hero from "../components/Hero.astro";
 import Nyheder from "../components/Nyheder.astro";
+import Banner from "../components/Banner.astro";
+import Nyhedsbrev from "../components/Nyhedsbrev.astro";
 
 const endpoint = "https://tugawxiltrjylrrkyipn.supabase.co/rest/v1/products";
 const options = {
@@ -44,6 +46,28 @@ const data = await fetch(endpoint, options).then((res) => res.json());
         alt="et billede af mændene bag a good case"
       />
     </section>
+    <Banner />
+    <section class="grid_layout_about">
+      <div>
+        <h2>VED DU IKKE HVILKE ØL DU SKAL VÆLGE?</h2>
+        <p>
+          Smag er forskellig - og en etiket fortæller ikke altid så meget om,
+          hvad du faktisk kan lide. men hvis du ved, om du foretrækker noget
+          bittert, sødt eller måske en klassisk pilsner, kan vi hjælpe dig med
+          at finde de øl, der passer til dig. så guider vi dig her
+        </p>
+        <Button
+          text="FIND DIN ØL HER"
+          variant="primaery-btn"
+          href="/productlist"
+        />
+      </div>
+      <img
+        src="/src/assets/billede-af-ølsortiment.jpg"
+        alt="et billede af mændene bag a good case"
+      />
+    </section>
+    <Nyhedsbrev />
   </main>
 </Layout>
 

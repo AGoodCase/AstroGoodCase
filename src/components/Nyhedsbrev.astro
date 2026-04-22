@@ -1,0 +1,47 @@
+---
+import Button from "../components/Button.astro";
+---
+
+<section class="tilmeld_brev_section">
+  <h2>TILMELD DIG NYHEDSBREVET</h2>
+  <p>LIVET ER FOR KORT TIL KEDELIG ØL - OG HØJE PRISER</p>
+  <p>
+    BLIV EN DEL AF ØLKLUBBEN - FÅ TILBUD, NYHEDER OG OPDAG NYE SMAGSOPLEVELSER
+  </p>
+  <div class="nyhedsbrev">
+    <p>INDTAST DIN E-MAIL</p>
+  </div>
+  <div class="tilmeld_nyhedsbrev_knap">
+    <Button text="TILMELD" variant="findoel_nyhedsbrev" />
+  </div>
+</section>
+
+<style>
+  .nyhedsbrev {
+    border: 1px solid #f9f9f6;
+    color: grey;
+    width: 436px;
+    height: 55px;
+    display: flex;
+    align-items: center; /* vertical centering */
+  }
+
+  .nyhedsbrev p {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .tilmeld_brev_section {
+    background-color: #16332d;
+    height: 409px;
+    align-content: center;
+    justify-items: center;
+    color: #f9f9f6;
+  }
+
+  .tilmeld_nyhedsbrev_knap {
+    margin-top: 30px;
+    width: 436px;
+    height: 55px;
+  }
+</style>
