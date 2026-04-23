@@ -302,21 +302,35 @@
   .mobile-menu {
     display: none;
   }
-  
+
+  /* når burger-menu er åben bliver logoerne grønne */
+  body.menu-open #logo .st0,
+  body.menu-open #logo .st1,
+  body.menu-open .mobile-logo .st0,
+  body.menu-open .mobile-logo .st1 {
+    stroke: #16332d !important;
+  }
+
+  body.menu-open #logo .st2,
+  body.menu-open #logo .st4,
+  body.menu-open .mobile-logo .st2,
+  body.menu-open .mobile-logo .st4 {
+    fill: #16332d !important;
+  }
 
   @media screen and (max-width: 800px) {
     .menu {
       display: none;
     }
 
-   .burger {
-  display: flex;
-  background-color: transparent;
-  border: 0;
-  margin-right: 20px;
-  position: relative;
-  z-index: 998;
-}
+    .burger {
+      display: flex;
+      background-color: transparent;
+      border: 0;
+      margin-right: 20px;
+      position: relative;
+      z-index: 998;
+    }
 
     .cart-icon {
       margin-right: -10px;
@@ -344,9 +358,6 @@
       align-items: flex-start;
       padding: 0 1.5rem 1.5rem;
     }
-    .mobile-menu.open + * .burger {
-  display: none;
-}
 
     .mobile-logo {
       display: inline-flex;
@@ -424,6 +435,11 @@
       font-weight: 600;
       letter-spacing: 0.02em;
     }
+
+    body.menu-open .burger {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 </style>
 
@@ -434,12 +450,14 @@
 
   const openNav = () => {
     mobileMenu?.classList.add("open");
+    document.body.classList.add("menu-open");
     burger?.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
   };
 
   const closeNav = () => {
     mobileMenu?.classList.remove("open");
+    document.body.classList.remove("menu-open");
     burger?.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
   };
