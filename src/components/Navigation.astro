@@ -23,7 +23,7 @@
             .st0,
             .st1 {
               fill: none;
-              stroke: #F9F9F6;
+              stroke: #1d322d;
               stroke-miterlimit: 10;
             }
 
@@ -132,7 +132,7 @@
               .st0,
               .st1 {
                 fill: none;
-                stroke: #F9F9F6;
+                stroke: #1d322d;
                 stroke-miterlimit: 10;
               }
 
@@ -153,7 +153,7 @@
 
               .st2,
               .st4 {
-                fill: #F9F9F6;
+                fill: #1d322d;
                 font-family: Avenir-Heavy, Avenir;
                 font-weight: 800;
               }
@@ -303,19 +303,30 @@
     display: none;
   }
 
-  /* når burger-menu er åben bliver logoerne grønne */
+  /* kun på forsiden */
+:global(body.hero-overlay) #logo .st0,
+:global(body.hero-overlay) #logo .st1 {
+  stroke: #f9f9f6 !important;
+}
+
+:global(body.hero-overlay) #logo .st2,
+:global(body.hero-overlay) #logo .st4 {
+  fill: #f9f9f6 !important;
+}
+
+  /* når burger-menu er åben bliver begge logoer grønne */
   body.menu-open #logo .st0,
   body.menu-open #logo .st1,
   body.menu-open .mobile-logo .st0,
   body.menu-open .mobile-logo .st1 {
-    stroke: #16332d !important;
+    stroke: #16332d ;
   }
 
   body.menu-open #logo .st2,
   body.menu-open #logo .st4,
   body.menu-open .mobile-logo .st2,
   body.menu-open .mobile-logo .st4 {
-    fill: #16332d !important;
+    fill: #16332d ;
   }
 
   @media screen and (max-width: 800px) {
