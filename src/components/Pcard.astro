@@ -10,7 +10,7 @@ const { product } = Astro.props;
   data-box={product.box}
   data-price={product.price}
 >
-  <a href={`details/${product.handle}`} class="card_link">
+  <a href={`../details/${product.handle}`} class="card_link">
     <img src={product.img} alt="productimage" />
 
     <div class="top_content">
@@ -25,7 +25,11 @@ const { product } = Astro.props;
   </a>
 
   <div class="button_wrap">
-    <Button text="VÆLG ANTAL" variant="vaelg-antal" href={`details/${product.handle}`} />
+    <Button
+      text="VÆLG ANTAL"
+      variant="vaelg-antal"
+      href={`details/${product.handle}`}
+    />
   </div>
 </article>
 
@@ -70,7 +74,7 @@ const { product } = Astro.props;
   }
 
   .price {
-    color: #16332D;
+    color: #16332d;
     font-size: 16px;
     margin: 0 0 0.2rem 0;
   }
@@ -90,5 +94,4 @@ const { product } = Astro.props;
   .hide {
     display: none;
   }
-  
 </style>
