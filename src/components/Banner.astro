@@ -9,7 +9,9 @@ import Button from "../components/Button.astro";
     Mix og match kassen efter dine fortrukne øl, eller hvis du gerne vil prøve nogle
     helt nye smage
   </p>
+  <div class="btn-kasse">
   <Button text="LAV DIN EGEN KASSE HER" variant="findoel-green" />
+  </div>
 </div>
 
 <style>
@@ -26,4 +28,16 @@ import Button from "../components/Button.astro";
     margin: 30px 0;
     line-height: 1.2;
   }
+
+  @media screen and (max-width: 800px) {
+   h2 {
+    font-size: 38px;
+    width: 100%;
+  }
+    .content {
+   color: #16332d;
+   padding: 30px 20px;
+   align-items: center; 
+   
+  }}
 </style>

@@ -131,11 +131,61 @@ const data = await fetch(endpoint, options).then((res) => res.json());
     margin-bottom: 4rem;
   }
 
-  @media (max-width: 900px) {
-    .grid_layout_about {
-      grid-template-columns: 1fr;
-    }
+ @media (max-width: 800px) {
+  
+  .grid_layout_about {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column; 
+    gap: 1.5rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    max-width: 100%;
   }
+
+  
+  .grid_layout_about:nth-of-type(2) {
+    flex-direction: column-reverse;
+  }
+
+  
+  .grid_layout_about h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: #16332d;
+  }
+
+  .grid_layout_about p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem; 
+  }
+
+  
+  .grid_layout_about :global(.primaery-btn) {
+    width: fit-content;
+    display: inline-block;
+    background-color: transparent !important;
+    border: 1px solid #16332d !important;
+    color: #16332d !important;
+    padding: 10px 25px !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  
+  .grid_layout_about img {
+    width: 100%;
+    order: 2; 
+  }
+
+  .grid_layout_about:nth-of-type(2) img {
+    order: 1; 
+  }
+}
+
 </style>
 
 
