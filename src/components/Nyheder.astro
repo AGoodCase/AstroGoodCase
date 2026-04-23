@@ -85,12 +85,15 @@ const { product } = Astro.props;
   }
 
   @media (max-width: 600px) {
+  
     .Pcard {
       flex: 0 0 240px;
     }
 
     .Pcard img {
-      height: 500px;
+      height: 180px !important; /* Fast højde på dåserne så de flugter */
+    object-fit: contain;
+    margin-bottom: 0.5rem;
     }
   }
 </style>
