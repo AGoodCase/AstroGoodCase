@@ -282,63 +282,6 @@ const { product } = Astro.props;
     margin-right: 250px;
   }
 
-  @media (max-width: 1200px) {
-    .details_grid {
-      grid-template-columns: 1fr;
-    }
-
-    .details_grid_2fr,
-    .details_grid_1fr {
-      grid-column: auto;
-      max-width: 100%;
-    }
-
-    .details_grid_1fr {
-      padding: 2rem 1.5rem;
-    }
-
-    .drink_specs_div {
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-    }
-
-    .colorfix {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .details_grid_2fr {
-      padding: 20px;
-    }
-
-    .details_price_section {
-      flex-direction: column;
-    }
-
-    .price-option {
-      width: 100%;
-    }
-
-    .container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .bliblop {
-      width: 160px;
-      height: 50px;
-    }
-
-    .details_price {
-      font-size: 20px;
-    }
-
-    .details_stk {
-      font-size: 16px;
-    }
-  }
 </style>
 <script>
   const options = document.querySelectorAll(".price-option");
