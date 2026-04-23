@@ -89,4 +89,42 @@ import Button from "../components/Button.astro";
 :global(body.hero-overlay header #logo svg .st4) {
   fill: #f9f9f6 !important;
 }
+
+@media (max-width: 800px) {
+  .hero {
+    height: 60vh; 
+    min-height: 400px; 
+  }
+
+  .hero_text {
+    top: 50%;
+    transform: translateY(-50%); 
+    left: 1.5rem;
+  }
+
+  .hero_text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero_text h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+  }
+
+  .hero_text p {
+    font-size: 0.9rem;
+    max-width: 90%;
+  }
+
+  
+  .hero_text :global(.findoel) {
+    padding: 10px 15px ;
+    font-size: 0.9rem ;
+   width: 90%;
+    align-items: center;
+  }
+}
+
+
 </style>
