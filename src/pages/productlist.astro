@@ -20,7 +20,7 @@ const brands = [
   "Fermenterarna",
   "Estrella",
   "Olympic",
-  "Reeper B."
+  "Reeper B"
 ];
 const boxSizes = ["Alle", "6", "12", "24"];
 
@@ -28,7 +28,7 @@ const boxSizes = ["Alle", "6", "12", "24"];
 ---
 
 <Layout>
-  <h3>Products</h3>
+<h3 class="products-title"> ALLE PRODUCTER</h3>
 
  <section class="shop_layout">
  <aside class="filters">
@@ -117,86 +117,189 @@ const boxSizes = ["Alle", "6", "12", "24"];
 
 <style>
  
+  .products-title {
+    font-size: 18px;
+    color: #16332d;
+    font-weight: 500;
+    padding: 0;
+    margin: 1.5rem 0 1.2rem 0;
+    width: 100%;
+    text-align: center;
+  }
 
-.shop_layout {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 0rem;
-  padding: 4rem 3rem;
-  align-items: start;
-}
+  .shop_layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 0 1rem 2rem 1rem;
+    align-items: start;
+  }
 
-.filters {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
-  width: 200px;
-  justify-self: start;
-}
-.filter_group {
-  width: 100%;
-}
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2rem;
+    margin-top: 0;
+    width: 100%;
+    justify-self: stretch;
+  }
 
-.filter_btn {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #16332d;
-  padding: 0.6rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #16332d;
-  font-family: "Zalando Sans SemiExpanded", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  cursor: pointer;
-  text-align: left;
-}
+  .filter_group {
+    width: 100%;
+  }
 
-.arrow {
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-}
-.filter_content {
-  display: none;
-  flex-direction: column;
-  gap: 0.4rem;
-  padding: 0.8rem 0 0.4rem 0;
-}
+  .filter_btn {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #16332d;
+    padding: 0.35rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #16332d;
+    font-family: "Zalando Sans SemiExpanded", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    text-align: left;
+  }
 
-.filter_group.open .filter_content {
-  display: flex;
-}
+  .arrow {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
 
-.sub_filter {
-  background: transparent;
-  border: none;
-  color: #16332d;
-  text-align: left;
-  font-family: "Zalando Sans SemiExpanded", sans-serif;
-  font-size: 14px;
-  cursor: pointer;
-  padding: 0.2rem 0;
-}
+  .filter_content {
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.35rem 0 0.15rem 0;
+  }
 
-.hide {
-  display: none;
-}
+  .filter_group.open .filter_content {
+    display: flex;
+  }
 
-.products {
-  width: 100%;
-   margin-left: -2rem;
-}
+  .sub_filter {
+    background: transparent;
+    border: none;
+    color: #16332d;
+    text-align: left;
+    font-family: "Zalando Sans SemiExpanded", sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0.1rem 0;
+  }
 
- .Plist {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(220px, 1fr));
-  gap: 2rem;
-}
+  .hide {
+    display: none;
+  }
 
+  .products {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .Plist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem 1rem;
+  }
+
+  @media (min-width: 1280px) {
+    .products-title {
+      font-size: 30px;
+      color: #16332d;
+      font-weight: 500;
+      padding-top: 0.5rem;
+      padding-bottom: 2rem;
+      margin-left: -40px;
+      margin-top: 60px;
+      margin-bottom: 0;
+      width: calc(100% - 320px + 2rem);
+      text-align: center;
+    }
+
+    .shop_layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 0rem;
+      padding: 1rem 3rem;
+      align-items: start;
+      padding-bottom: 6rem;
+    }
+
+    .filters {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+      width: 200px;
+      justify-self: start;
+    }
+
+    .filter_group {
+      width: 100%;
+    }
+
+    .filter_btn {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #16332d;
+      padding: 0.6rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #16332d;
+      font-family: "Zalando Sans SemiExpanded", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .arrow {
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .filter_content {
+      display: none;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 0.8rem 0 0.4rem 0;
+    }
+
+    .filter_group.open .filter_content {
+      display: flex;
+    }
+
+    .sub_filter {
+      background: transparent;
+      border: none;
+      color: #16332d;
+      text-align: left;
+      font-family: "Zalando Sans SemiExpanded", sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 0.2rem 0;
+    }
+
+    .products {
+      width: 100%;
+      margin-left: -2rem;
+    }
+
+    .Plist {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+  }
 </style>
 
 <script>
@@ -342,4 +445,5 @@ const boxSizes = ["Alle", "6", "12", "24"];
 
     applyFilters();
   }
+  
 </script>
