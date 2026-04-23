@@ -26,7 +26,7 @@ import Layout from "../layouts/Layout.astro";
 
 
     <section class="Skiftende_sortiment">
-     <h2>SKIFTENDE SORTIMENT - SAMME KVALITET</h2>
+    <div><h2>SKIFTENDE SORTIMENT - SAMME KVALITET</h2></div>
      <p>I A Good Case har vi et alsidigt sortiment af lækre specialøl fra ind- og udland, som alle har det til fælles, at de venter på at blive reddet inden best before-datoen. Vores mission er derfor: LESS WASTE - GREAT TASTE.  I vores udvalg har vi altid fokus på den høje kvalitet, som mikrobryggerierne kan levere. Vi bestræber os på at indkøbe øl til enhver smag, pengepung og med forskellige alkoholprocenter. Vi indkøber kun øl, der skal reddes. Derfor er vores sortiment ikke fast, og du kan altid opleve nye, spændende øl, når du handler hos os. Siden starten har vi reddet mere end 1 mio. øl fra at gå til spilde.</p>
     </section>
     <section class="grid_layout_about">
@@ -51,6 +51,7 @@ import Layout from "../layouts/Layout.astro";
     margin: 0 0 1rem 4rem;
     font-size: 5rem;
     font-weight: 700;
+    color: #F5F5F5;
   }
 
   .about_header h1 {
@@ -78,7 +79,7 @@ import Layout from "../layouts/Layout.astro";
 }
 
 .Skiftende_sortiment {
-  max-width: 1280px;
+
   margin: 0 auto;
   margin-bottom: 7rem;
   border: 1px solid #FFD4F0;
@@ -87,15 +88,19 @@ import Layout from "../layouts/Layout.astro";
 }
 
 div h2{
+font-size: 38px;
   margin-bottom: 30px;
+  color: #16332D;
 }
 
 div p{
   line-height: 2.0;
+  color: #16332D;
 }
 
 section p{
   line-height: 2.0;
+  color: #16332D;
 }
 
 
@@ -124,13 +129,15 @@ section p{
     padding: 20px;
     border-top: 50px solid #16332D;
   }
-
+ 
   .about_header h1 {
-    font-size: 3rem;  
+    font-size: 3rem;
+    margin: 0 0 1rem 0;  
   }
 
     .about_header h2 {
-    font-size: 3rem;  
+    font-size: 2rem;
+    margin: 0 0 1rem 0;   
   }
 
   div p{
@@ -141,6 +148,14 @@ section p{
   line-height: 1.5;
 }
 
+.Skiftende_sortiment{
+margin-bottom: 1rem;
+
+}
+
+.about_header{
+margin-bottom: 1rem;
+}
   .grid_layout_about{
     max-width: 393px;
     margin 0 auto;
