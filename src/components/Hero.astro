@@ -3,7 +3,7 @@ import Button from "../components/Button.astro";
 ---
 
 <section class="hero">
-  <img src="/src/assets/herobillede.jpeg" alt="Billede af 2 der skåler" />
+  <img src="/assets/herobillede.jpeg" alt="Billede af 2 der skåler" />
 
   <div class="overlay"></div>
 
@@ -69,62 +69,59 @@ import Button from "../components/Button.astro";
   }
 
   :global(body.hero-overlay header .menu a) {
-  color: #f9f9f6 !important;
-}
-
-:global(body.hero-overlay header .cart-icon) {
-  color: #f9f9f6 !important;
-}
-
-:global(body.hero-overlay header .burger .line) {
-  background-color: #f9f9f6 !important;
-}
-
-:global(body.hero-overlay header #logo svg .st0),
-:global(body.hero-overlay header #logo svg .st1) {
-  stroke: #f9f9f6 !important;
-}
-
-:global(body.hero-overlay header #logo svg .st2),
-:global(body.hero-overlay header #logo svg .st4) {
-  fill: #f9f9f6 !important;
-}
-
-@media (max-width: 800px) {
-  .hero {
-    height: 60vh; 
-    min-height: 400px; 
+    color: #f9f9f6 !important;
   }
 
-  .hero_text {
-    top: 50%;
-    transform: translateY(-50%); 
-    left: 1.5rem;
+  :global(body.hero-overlay header .cart-icon) {
+    color: #f9f9f6 !important;
   }
 
-  .hero_text h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+  :global(body.hero-overlay header .burger .line) {
+    background-color: #f9f9f6 !important;
   }
 
-  .hero_text h1 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+  :global(body.hero-overlay header #logo svg .st0),
+  :global(body.hero-overlay header #logo svg .st1) {
+    stroke: #f9f9f6 !important;
   }
 
-  .hero_text p {
-    font-size: 0.9rem;
-    max-width: 90%;
+  :global(body.hero-overlay header #logo svg .st2),
+  :global(body.hero-overlay header #logo svg .st4) {
+    fill: #f9f9f6 !important;
   }
 
-  
-  .hero_text :global(.findoel) {
-    padding: 10px 15px ;
-    font-size: 0.9rem ;
-   width: 90%;
-    align-items: center;
+  @media (max-width: 800px) {
+    .hero {
+      height: 60vh;
+      min-height: 400px;
+    }
+
+    .hero_text {
+      top: 50%;
+      transform: translateY(-50%);
+      left: 1.5rem;
+    }
+
+    .hero_text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero_text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .hero_text p {
+      font-size: 0.9rem;
+      max-width: 90%;
+    }
+
+    .hero_text :global(.findoel) {
+      padding: 10px 15px;
+      font-size: 0.9rem;
+      width: 90%;
+      align-items: center;
+    }
   }
-}
-
-
 </style>
